@@ -64,7 +64,16 @@ def teachable_machine_classification(img, file):
     result = prediction[0]
     st.write(result[0])
     st.write(result[1])
-    return prediction
+    players = []
+    for i in range(len(result)):
+        score = result[i]
+        if score > 0.1:
+            players.append(labels[i])
+    
+    if len(players) == 0:
+        return "Sorry! No match found!"
+    
+    return players
   
 uploaded_file = st.file_uploader("Choose Image", type="jpeg")
 
@@ -75,7 +84,3 @@ if uploaded_file is not None:
     st.write("")
     label = teachable_machine_classification(image, 'keras_model.h5')
     st.write(label)
-#     if label == 1:
-#         st.write("This X ray looks like having pneumonia.It has abnormal opacification.Needs further investigation by a Radiologist/Doctor.")
-#     else:
-#         st.write("Hooray!! This X ray looks normal.This X ray depicts clear lungs without any areas of abnormal opacification in the image")
