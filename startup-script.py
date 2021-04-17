@@ -16,7 +16,7 @@ st.write("Solution built using *TeachableMachine* & *streamlit.io*  :sunglasses:
 def teachable_machine_classification(img, file):
     # Disable scientific notation for clarity
     np.set_printoptions(suppress=True)
-
+    print("Loading model")
     # Load the model
     model = keras.models.load_model(file)
 
