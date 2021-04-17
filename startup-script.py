@@ -61,8 +61,9 @@ def teachable_machine_classification(img, file):
         
 #     st.write(labels)
 #     return np.argmax(prediction)
-    st.write(prediction[0])
-    st.write(prediction[1])
+    result = prediction[0]
+    st.write(result[0])
+    st.write(result[1])
     return prediction
   
 uploaded_file = st.file_uploader("Choose Image", type="jpeg")
