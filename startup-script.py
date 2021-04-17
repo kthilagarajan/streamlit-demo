@@ -18,7 +18,7 @@ def teachable_machine_classification(img, file):
     np.set_printoptions(suppress=True)
     print("Loading model")
     # Load the model
-    model = keras.models.load_model(file)
+    model = keras.models.load_model(file, , compile=False)
 
     # Create the array of the right shape to feed into the keras model
     # The 'length' or number of images you can put into the array is
