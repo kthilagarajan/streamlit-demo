@@ -81,5 +81,5 @@ if uploaded_file is not None:
     st.write("Players found with accuracy : ")
     sorted_players = output[1]
     players_score = output[0]
-    for i in range(len(sorted_players))
+    for i in range(len(sorted_players)):
         st.write(sorted_players[i] + "(" + players_score[sorted_players[i]] * 100 + "%)")
