@@ -66,7 +66,6 @@ def teachable_machine_classification(img, file):
     for i in range(len(result)):
         result_map[labels[i]] = float(result[i])
         
-    st.write(result_map)
     sorted_players = sorted(result_map, key=result_map.get, reverse=True)
     
     return [result_map, sorted_players]
@@ -82,4 +81,6 @@ if uploaded_file is not None:
     sorted_players = output[1]
     players_score = output[0]
     for i in range(len(sorted_players)):
-        st.write(sorted_players[i] + "(" + str(players_score[sorted_players[i]]*100) + "%)")
+        score = players_score[sorted_players[i]]*100
+        if score > 1:
+            st.write(sorted_players[i] + " (" + str(score) + " %)")
