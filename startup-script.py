@@ -59,16 +59,10 @@ def teachable_machine_classification(img, file):
             words = line.split() #Splitting lines in words using space character as separator
             labels.append(words[1])
         
-    
-    st.write(np.sort(prediction))
-    st.write(np.sort(prediction)[::-1])
-#     st.write(labels)
-#     return np.argmax(prediction)
     result = prediction[0]
-    st.write(result[0])
-    st.write(result[1])
     
-    
+    res = dict(zip(labels, result))
+       
     players = []
     for i in range(len(result)):
         score = result[i]
