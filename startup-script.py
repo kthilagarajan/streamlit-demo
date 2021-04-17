@@ -61,17 +61,19 @@ def teachable_machine_classification(img, file):
         
     result = prediction[0]
     
-    res = dict(zip(labels, result))
-    st.write(res)
+    res = {}
        
     players = []
     for i in range(len(result)):
-        score = result[i]
-        if score > 0.1:
-            players.append(labels[i])
+        res[labels[i]] = result[i]
+        
+      
+    st.write(res)
+#         if score > 0.1:
+#             players.append(labels[i])
     
-    if len(players) == 0:
-        return "Sorry! No match found!"
+#     if len(players) == 0:
+#         return "Sorry! No match found!"
     
     return players
   
