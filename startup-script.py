@@ -62,6 +62,7 @@ def teachable_machine_classification(img, file):
     result = prediction[0]
     
     res = dict(zip(labels, result))
+    st.write(res)
        
     players = []
     for i in range(len(result)):
