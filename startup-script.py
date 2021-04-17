@@ -54,10 +54,10 @@ def teachable_machine_classification(img, file):
     labels = []
     
     with open("labels.txt", 'r') as File:
-    infoFile = File.readlines() #Reading all the lines from File
-    for line in infoFile: #Reading line-by-line
-        words = line.split() #Splitting lines in words using space character as separator
-        labels.append(words[1])
+        infoFile = File.readlines() #Reading all the lines from File
+        for line in infoFile: #Reading line-by-line
+            words = line.split() #Splitting lines in words using space character as separator
+            labels.append(words[1])
         
     st.write(labels)
 #     return np.argmax(prediction)
