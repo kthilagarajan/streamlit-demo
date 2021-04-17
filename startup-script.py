@@ -61,11 +61,11 @@ def teachable_machine_classification(img, file):
         
     result = prediction[0]
     
-    result_map = {}
+    result_map = dict(zip(labels, float(result)))
        
     players = []
-    for i in range(len(result)):
-        result_map[labels[i]] = float(result[i])
+#     for i in range(len(result)):
+#         result_map[labels[i]] = float(result[i])
         
     st.write(result_map)
     players = sorted(result_map, key=result_map.get, reverse=True)
