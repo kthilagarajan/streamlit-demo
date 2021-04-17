@@ -77,7 +77,7 @@ if uploaded_file is not None:
     #image = Image.open(img_name).convert('RGB')
     st.image(image, caption='Image Uploaded', use_column_width=True)
     output = teachable_machine_classification(image, 'keras_model.h5')
-    st.header("Players in the image :")
+    st.header("It should be either :")
     st.write("")
     sorted_players = output[1]
     players_score = output[0]
