@@ -59,9 +59,11 @@ def teachable_machine_classification(img, file):
             words = line.split() #Splitting lines in words using space character as separator
             labels.append(words[1])
         
-    st.write(labels)
+#     st.write(labels)
 #     return np.argmax(prediction)
-    return prediction[::-1].sort()
+    st.write(prediction[0])
+    st.write(prediction[1])
+    return prediction
   
 uploaded_file = st.file_uploader("Choose Image", type="jpeg")
 
