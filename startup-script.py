@@ -77,10 +77,15 @@ if uploaded_file is not None:
     #image = Image.open(img_name).convert('RGB')
     st.image(image, caption='Image Uploaded', use_column_width=True)
     output = teachable_machine_classification(image, 'keras_model.h5')
-    st.write("Players found with accuracy : ")
+    st.write("Yes! Found it!")
     sorted_players = output[1]
     players_score = output[0]
+    match_found = False
     for i in range(len(sorted_players)):
         score = players_score[sorted_players[i]]*100
         if score > 1:
+            match_found = True
             st.write(sorted_players[i] + " (" + str(score) + " %)")
+    
+    if match_found == False:
+        st.write("Sorry! No match found!")
