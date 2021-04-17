@@ -46,10 +46,10 @@ def teachable_machine_classification(img, file):
 
     # Load the image into the array
     data[0] = normalized_image_array
-
+    print("Before Prediction")
     # run the inference
     prediction = model.predict(data)
-    #print(prediction)
+    print(prediction)
     return np.argmax(prediction)
   
 uploaded_file = st.file_uploader("Choose Image", type="jpeg")
