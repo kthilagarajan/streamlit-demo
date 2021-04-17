@@ -65,6 +65,7 @@ def teachable_machine_classification(img, file):
        
     players = []
     for i in range(len(result)):
+        st.write(result[i])
         res[labels[i]] = result[i].value
         
       
