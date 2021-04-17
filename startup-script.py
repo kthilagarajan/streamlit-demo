@@ -16,7 +16,7 @@ st.write("Solution built using *TeachableMachine* & *streamlit.io*  :sunglasses:
 def teachable_machine_classification(img, file):
     # Disable scientific notation for clarity
     np.set_printoptions(suppress=True)
-    print("Loading model")
+    st.write("Loading model")
     # Load the model
     model = keras.models.load_model(file, compile=False)
 
@@ -46,10 +46,10 @@ def teachable_machine_classification(img, file):
 
     # Load the image into the array
     data[0] = normalized_image_array
-    print("Before Prediction")
+    st.write("Before Prediction")
     # run the inference
     prediction = model.predict(data)
-    print(prediction)
+    st.write(prediction)
     return np.argmax(prediction)
   
 uploaded_file = st.file_uploader("Choose Image", type="jpeg")
@@ -61,7 +61,7 @@ if uploaded_file is not None:
     st.write("")
     st.write("Identifying the cricketers...")
     label = teachable_machine_classification(image, 'keras_model.h5')
-    print(label)
+    st.write(label)
 #     if label == 1:
 #         st.write("This X ray looks like having pneumonia.It has abnormal opacification.Needs further investigation by a Radiologist/Doctor.")
 #     else:
