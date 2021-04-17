@@ -49,7 +49,6 @@ def teachable_machine_classification(img, file):
 
     # run the inference
     prediction = model.predict(data)
-    st.write(prediction)
     
     labels = []
     
@@ -78,6 +77,9 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file).convert('RGB')
     #image = Image.open(img_name).convert('RGB')
     st.image(image, caption='Image Uploaded', use_column_width=True)
-    st.write("")
-    label = teachable_machine_classification(image, 'keras_model.h5')
-    st.write(label)
+    output = teachable_machine_classification(image, 'keras_model.h5')
+    st.write("Players found with accuracy : ")
+    sorted_players = output[1]
+    players_score = output[0]
+    for i in range(len(sorted_players))
+        st.write(sorted_players[i] + "(" + players_score[sorted_players[i]] * 100 + "%)")
