@@ -61,14 +61,14 @@ def teachable_machine_classification(img, file):
         
     result = prediction[0]
     
-    result_map = dict(zip(labels, float(result)))
+    result_map = {}
        
     players = []
-#     for i in range(len(result)):
-#         result_map[labels[i]] = float(result[i])
+    for i in range(len(result)):
+        result_map[labels[i]] = float(result[i])
         
     st.write(result_map)
-    players = sorted(result_map, key=result_map.get, reverse=True)
+    players = sorted(result_map, reverse=True)
     st.write(players)
 #         if score > 0.1:
 #             players.append(labels[i])
