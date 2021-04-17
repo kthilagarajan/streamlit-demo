@@ -68,15 +68,9 @@ def teachable_machine_classification(img, file):
         result_map[labels[i]] = float(result[i])
         
     st.write(result_map)
-    players = sorted(result_map, reverse=True)
-    st.write(players)
-#         if score > 0.1:
-#             players.append(labels[i])
+    sorted_players = sorted(result_map, key=result_map.get, reverse=True)
     
-#     if len(players) == 0:
-#         return "Sorry! No match found!"
-    
-    return ",".join(players)
+    return [result_map, sorted_players]
   
 uploaded_file = st.file_uploader("Choose Image", type="jpeg")
 
